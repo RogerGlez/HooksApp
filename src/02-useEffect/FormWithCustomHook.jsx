@@ -1,15 +1,17 @@
-import { useEffect } from "react"
 import { useForm } from "../hooks/useForm";
 
 export const FormWithCustomHook = () => {
 
-    const { formState, onInputChange } = useForm({
-        username: "",
-        email: "",
-        password: ""
-    });
-
-    const { username, email, password } = formState;
+    const { onInputChange,
+        username,
+        email,
+        password,
+        onResetForm } =
+        useForm({
+            username: "",
+            email: "",
+            password: ""
+        });
 
     return (
         <>
@@ -37,6 +39,8 @@ export const FormWithCustomHook = () => {
                 name="password"
                 value={password}
                 onChange={onInputChange} />
+
+            <button onClick={onResetForm} className="btn btn-primary mt-2">Borrar</button>
 
         </>
     )

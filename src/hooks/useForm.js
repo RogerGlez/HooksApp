@@ -8,8 +8,14 @@ export const useForm = (initialForm = {}) => {
         setFormState(newFormState);
     }
 
+    const onResetForm = () => {
+        setFormState({ ...initialForm });
+    }
+
     return {
         formState,
-        onInputChange
+        ...formState,
+        onInputChange,
+        onResetForm
     }
 }
